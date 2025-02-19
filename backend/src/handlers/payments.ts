@@ -10,7 +10,7 @@ export default function mountPaymentsEndpoints(router: Router) {
     const paymentId = payment.identifier;
     const txid = payment.transaction && payment.transaction.txid;
     const txURL = payment.transaction && payment.transaction._link;
-
+const TASK_DEPOSIT = 10; // 押金10π
     /* 
       implement your logic here
       e.g. verifying the payment, delivering the item to the user, etc...
