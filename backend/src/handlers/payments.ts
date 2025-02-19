@@ -31,7 +31,9 @@ const TASK_DEPOSIT = 10; // 押金10π
     // check the transaction on the Pi blockchain
     const horizonResponse = await axios.create({ timeout: 20000 }).get(txURL);
     const paymentIdOnBlock = horizonResponse.data.memo;
-
+if (amount !== TASK_DEPOSIT) {
+  throw new Error('押金必须为10π');
+}
     // and check other data as well e.g. amount
     if (paymentIdOnBlock !== order.pi_payment_id) {
       return res.status(400).json({ message: "Payment id doesn't match." });
